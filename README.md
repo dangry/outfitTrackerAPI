@@ -5,8 +5,8 @@ Postgres
 
 working endpoints:
 
-POST /api/v1/products
-GET /api/v1/products/{id}
+* POST /api/v1/products
+* GET /api/v1/products/{id}
 
 productPayload: 
     {
