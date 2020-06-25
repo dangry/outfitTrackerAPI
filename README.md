@@ -1,5 +1,10 @@
 # outfitTrackerAPI
-Deno API
+
+Deno 🦕
+
+Oak
+
+DenoDb
 
 Postgres
 
