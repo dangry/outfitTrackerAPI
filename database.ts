@@ -29,12 +29,17 @@ db.link([ProductModel]);
 
 // await db.sync({ drop: true });
 
-const saveProduct = async (product: Product) => {
-  await ProductModel.create({ ...product });
+
+const findAllProducts = async () => {
+  return await ProductModel.all();
 };
 
 const findProductById = async (id: string) => {
   return await ProductModel.find(id);
 };
 
-export { findProductById, saveProduct };
+const saveProduct = async (product: Product) => {
+  await ProductModel.create({ ...product });
+};
+
+export { findAllProducts, findProductById, saveProduct };
