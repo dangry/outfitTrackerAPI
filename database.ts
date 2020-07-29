@@ -6,7 +6,7 @@ const db = new Database("postgres", {
   port: 5432,
   username: "postgres",
   password: "",
-  database: "postgres",
+  database: "outfit",
 });
 
 class ProductModel extends Model {
@@ -26,6 +26,8 @@ class ProductModel extends Model {
 }
 
 db.link([ProductModel]);
+
+// await db.sync({ drop: true });
 
 const saveProduct = async (product: Product) => {
   await ProductModel.create({ ...product });

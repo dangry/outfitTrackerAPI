@@ -1,5 +1,8 @@
+// @ts-ignore
 import { v4 } from "https://deno.land/std/uuid/mod.ts";
+// @ts-ignore
 import { Product } from "../types.ts";
+// @ts-ignore
 import { findProductById, saveProduct } from "../database.ts";
 
 let products: Product[] = [
@@ -62,7 +65,7 @@ const addProduct = async (
       msg: "No data",
     };
   } else {
-    const product: Product = body.value;
+    const product: Product = await body.value;
     product.id = v4.generate();
     saveProduct(product);
 
