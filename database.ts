@@ -27,7 +27,7 @@ class GarmentModel extends Model {
 
 db.link([GarmentModel]);
 
-await db.sync({ drop: true });
+// await db.sync({ drop: true });
 
 
 const findAllGarments = async () => {
