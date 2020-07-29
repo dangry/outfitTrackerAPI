@@ -1,40 +1,40 @@
 // @ts-ignore
 import { v4 } from "https://deno.land/std/uuid/mod.ts";
 // @ts-ignore
-import { Product } from "../types.ts";
+import { Garment } from "../types.ts";
 // @ts-ignore
-import { findAllProducts, findProductById, saveProduct } from "../database.ts";
+import { findAllGarments, findGarmentById, saveGarment } from "../database.ts";
 
-const getProducts = async ({ response }: { response: any }) => {
-  const products: Product[] = await findAllProducts();
+const getGarments = async ({ response }: { response: any }) => {
+  const garments: Garment[] = await findAllGarments();
 
   response.body = {
     success: true,
-    data: products,
+    data: garments,
   };
 };
 
-const getProduct = async (
+const getGarment = async (
   { params, response }: { params: { id: string }; response: any },
 ) => {
-  const product: Product | undefined = await findProductById(params.id);
+  const garment: Garment | undefined = await findGarmentById(params.id);
 
-  if (product) {
+  if (garment) {
     response.status = 200;
     response.body = {
       success: true,
-      data: product,
+      data: garment,
     };
   } else {
     response.status = 404;
     response.body = {
       success: false,
-      msg: "No product found",
+      msg: "No garment found",
     };
   }
 };
 
-const addProduct = async (
+const addGarment = async (
   { request, response }: { request: any; response: any },
 ) => {
   const body = await request.body();
@@ -46,16 +46,16 @@ const addProduct = async (
       msg: "No data",
     };
   } else {
-    const product: Product = await body.value;
-    product.id = v4.generate();
-    saveProduct(product);
+    const garment: Garment = await body.value;
+    garment.id = v4.generate();
+    saveGarment(garment);
 
     response.status = 201;
     response.body = {
       success: true,
-      data: product,
+      data: garment,
     };
   }
 };
 
-export { getProducts, getProduct, addProduct };
+export { getGarments, getGarment, addGarment };

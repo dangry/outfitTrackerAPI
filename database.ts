@@ -1,5 +1,5 @@
 import { DataTypes, Database, Model } from "https://deno.land/x/denodb/mod.ts";
-import { Product } from "./types.ts";
+import { Garment } from "./types.ts";
 
 const db = new Database("postgres", {
   host: "localhost",
@@ -9,8 +9,8 @@ const db = new Database("postgres", {
   database: "outfit",
 });
 
-class ProductModel extends Model {
-  static table = "products";
+class GarmentModel extends Model {
+  static table = "garments";
 
   static timestamps = true;
 
@@ -25,21 +25,21 @@ class ProductModel extends Model {
   };
 }
 
-db.link([ProductModel]);
+db.link([GarmentModel]);
 
-// await db.sync({ drop: true });
+await db.sync({ drop: true });
 
 
-const findAllProducts = async () => {
-  return await ProductModel.all();
+const findAllGarments = async () => {
+  return await GarmentModel.all();
 };
 
-const findProductById = async (id: string) => {
-  return await ProductModel.find(id);
+const findGarmentById = async (id: string) => {
+  return await GarmentModel.find(id);
 };
 
-const saveProduct = async (product: Product) => {
-  await ProductModel.create({ ...product });
+const saveGarment = async (garment: Garment) => {
+  await GarmentModel.create({ ...garment });
 };
 
-export { findAllProducts, findProductById, saveProduct };
+export { findAllGarments, findGarmentById, saveGarment };

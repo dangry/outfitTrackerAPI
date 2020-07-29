@@ -10,19 +10,20 @@ Postgres
 
 working endpoints:
 
-* POST /api/v1/products
-* GET /api/v1/products/
-* GET /api/v1/products/{id}
+* POST /api/v1/garments
+* GET /api/v1/garments/
+* GET /api/v1/garments/{id}
 
-productPayload: 
+garmentPayload: 
     {
-      "name": "Product One",
-      "description": "This is product one",
+      "name": "T shirt",
+      "description": "This is garment one",
       "price": 99.99
     }
 
 TODO:
 
+- [ ] use mongodb (?)
 - [ ] save clothes with photo
 - [ ] save clothes, an outfit
 - [ ] outfits should have dates
