@@ -4,3 +4,10 @@ export interface Garment {
   description: string;
   price: number;
 }
+
+export interface Outfit {
+  id: string;
+  name: string;
+  description: string;
+  garmentIds: string[];
+}

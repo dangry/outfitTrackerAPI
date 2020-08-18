@@ -3,7 +3,7 @@ import { v4 } from "https://deno.land/std/uuid/mod.ts";
 // @ts-ignore
 import { Garment } from "../types.ts";
 // @ts-ignore
-import { findAllGarments, findGarmentById, saveGarment } from "../database.ts";
+import { findAllGarments, findGarmentById, saveGarment } from "../database/index.ts";
 
 const getGarments = async ({ response }: { response: any }) => {
   const garments: Garment[] = await findAllGarments();
