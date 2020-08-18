@@ -19,8 +19,17 @@ garmentPayload:
     {
       "name": "T shirt",
       "description": "This is garment one",
-      "price": 99.99
     }
+    
+outfitPayload: 
+    {
+    "name": "New outfit",
+    "description": "This is a new outfit",
+    "garmentIds": [
+        "aaa2d8a4-a1f0-4989-8ccc-c22a571a1ce8",
+        "a4b15292-cb8f-4438-8c58-f4fb751449c6"
+    ]
+}
 
 TODO:
 
