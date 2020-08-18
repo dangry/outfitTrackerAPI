@@ -1,33 +1,42 @@
-# This is a basic workflow to help you get started with Actions
+name: NATS.deno
 
-name: CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    tags:
+      - '*'
+    branches:
+      - '*'
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  test:
+    name: ${{ matrix.config.kind }} ${{ matrix.config.os }}
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    strategy:
+      matrix:
+        deno-version: [1.3.0]
+
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      - name: Git Checkout Deno Module
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
 
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
+      - name: Use Deno Version ${{ matrix.deno-version }}
+        uses: denolib/setup-deno@master
+        with:
+          deno-version: ${{ matrix.deno-version }}
 
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+      - name: Set NATS Server Version
+        run: echo '::set-env name=NATS_VERSION::v2.1.7'
+      
+      - name: Lint Deno Module
+        run: deno fmt --check
+
+      - name: Test Deno Module
+        env:
+          TMPDIR: ${{ runner.temp }}
+          CI: true
+        run: deno test --allow-all --unstable --failfast
