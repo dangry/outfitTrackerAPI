@@ -1,6 +1,6 @@
 # outfitTrackerAPI
 
-https://github.com/dangry/outfitTrackerAPI/workflows/deno/badge.svg
+<a href="https://github.com/dangry/outfitTrackerAPI/workflows/deno/badge.svg" alt="Workflows">
 
 Deno 🦕
 
