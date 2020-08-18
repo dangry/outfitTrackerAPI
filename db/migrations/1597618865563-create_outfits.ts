@@ -8,8 +8,8 @@ export const up: Migration<Schema> = ({ queryBuilder }) => {
     table.string("description", 100).nullable();
     table.timestamps();
   });
-  
-  return queryBuilder.query
+
+  return queryBuilder.query;
 };
 
 export const down: Migration<Schema> = ({ queryBuilder }) => {

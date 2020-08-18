@@ -1,6 +1,5 @@
 import { DataTypes, Model } from "https://deno.land/x/denodb/mod.ts";
 
-
 class OutfitsGarmentsModel extends Model {
   static table = "outfits_garments";
 
@@ -12,4 +11,4 @@ class OutfitsGarmentsModel extends Model {
   };
 }
 
-export default OutfitsGarmentsModel
+export default OutfitsGarmentsModel;
