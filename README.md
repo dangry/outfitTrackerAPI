@@ -11,6 +11,7 @@ Postgres
 working endpoints:
 
 * POST /api/v1/garments
+* POST /api/v1/outfits
 * GET /api/v1/garments/
 * GET /api/v1/garments/{id}
 
@@ -29,3 +30,7 @@ TODO:
 - [ ] outfits should have dates
 - [ ] clothes should have a record of when they where used, as well as outfits
 - [ ] should get X most used clothes, outfits
+- [X] DB migrations (nessie)
+- [ ] schema validation
+- [ ] error handling
+- [ ] tests tests tests
