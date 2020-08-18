@@ -10,8 +10,9 @@ Postgres
 
 working endpoints:
 
-* POST /api/v1/garments
 * POST /api/v1/outfits
+* GET /api/v1/outfits/{id}
+* POST /api/v1/garments
 * GET /api/v1/garments/
 * GET /api/v1/garments/{id}
 
