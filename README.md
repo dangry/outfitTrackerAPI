@@ -1,5 +1,7 @@
 # outfitTrackerAPI
 
+https://github.com/dangry/outfitTrackerAPI/workflows/<WORKFLOW_NAME>/badge.svg
+
 Deno 🦕
 
 Oak 🐿
