@@ -1,6 +1,7 @@
 # outfitTrackerAPI
 
-<a href="https://github.com/dangry/outfitTrackerAPI/workflows/deno/badge.svg" alt="Workflows">
+[![Workflow](https://github.com/dangry/outfitTrackerAPI/workflows/deno/badge.svg)](https://github.com/dangry/outfitTrackerAPI/workflows/deno/badge.svg)
+
 
 Deno 🦕
 
