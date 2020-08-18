@@ -3,7 +3,7 @@ import { v4 } from "https://deno.land/std/uuid/mod.ts";
 // @ts-ignore
 import { Outfit } from "../types.ts";
 // @ts-ignore
-import { saveOutfit } from "../database/index.ts";
+import { findOutfitById, saveOutfit } from "../database/index.ts";
 
 const addOutfit = async (
   { request, response }: { request: any; response: any },
@@ -29,4 +29,24 @@ const addOutfit = async (
   }
 };
 
-export { addOutfit };
+const getOutfit = async (
+  { params, response }: { params: { id: string }; response: any },
+) => {
+  const garment: Outfit | undefined = await findOutfitById(params.id);
+
+  if (garment) {
+    response.status = 200;
+    response.body = {
+      success: true,
+      data: garment,
+    };
+  } else {
+    response.status = 404;
+    response.body = {
+      success: false,
+      msg: "No outfit found",
+    };
+  }
+};
+
+export { addOutfit, getOutfit };

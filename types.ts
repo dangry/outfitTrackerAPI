@@ -10,4 +10,5 @@ export interface Outfit {
   name: string;
   description: string;
   garmentIds: string[];
+  garments: Garment[];
 }
