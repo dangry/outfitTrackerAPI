@@ -1,4 +1,4 @@
-name: NATS.deno
+name: deno
 
 on:
   push:
@@ -29,9 +29,6 @@ jobs:
         with:
           deno-version: ${{ matrix.deno-version }}
 
-      - name: Set NATS Server Version
-        run: echo '::set-env name=NATS_VERSION::v2.1.7'
-      
       - name: Lint Deno Module
         run: deno fmt --check
 
